@@ -1,0 +1,11 @@
+<h1>Developer</h1>
+
+<% @developers.each do |dev| %>
+  <%= dev.email %> - 
+  <% dev.programming_languages.each  do |pro| %> 
+    <span><%= pro.name %>, </span> 
+  <% end %> - 
+  <% dev.languages.each  do |lan| %> 
+    <span><%= lan.code %>, </span> 
+  <% end %>
+<% end %>
