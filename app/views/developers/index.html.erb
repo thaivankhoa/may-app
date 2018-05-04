@@ -1,0 +1,34 @@
+
+<%= form_tag developers_path, method: :get do %>
+<%= label_tag(:programming_languages, "programming languages ") %>
+<%= text_field_tag :programming_languages, params[:programming_languages] %>
+<%= label_tag(:languages, " languages ") %>
+<%= text_field_tag :languages, params[:languages] %>
+<%= submit_tag "Search", name: nil %>
+<% end %>
+
+<h1>Developer</h1>
+
+<table style="min-width:800px; border: 1px solid black; border-collapse: collapse;">
+  <tr>
+    <th style="text-align: left; border: 1px solid black;">email</th>
+    <th style="text-align: left; border: 1px solid black;">programming languages</th>
+    <th style="text-align: left; border: 1px solid black;">languages</th>
+  </tr>
+  <% @developers.each do |dev| %>
+  <tr style="text-align: left; border: 1px solid black;">
+    <td style="text-align: left; border: 1px solid black;"><%= dev.email %></td>
+    <td style="text-align: left; border: 1px solid black;">
+      <% dev.programming_languages.each do |pro| %>
+        <span><%= pro.name %>, </span>
+      <% end %>
+    </td >
+    <td style="text-align: left; border: 1px solid black;">
+        <% dev.languages.each do |lan| %>
+          <span><%= lan.code %>, </span>
+        <% end %>
+      </td>
+  </tr>
+  <% end %>
+  
+</table>
